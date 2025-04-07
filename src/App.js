@@ -9,7 +9,7 @@ function App() {
 
   const handleMovie = (e) => {
     setMovie(e.target.value);
-    alert(movie);
+    //alert(movie);
   };
 
   return (
@@ -25,14 +25,18 @@ function App() {
         />
       </div>
       <div className="container">
-        {data.map((item) => (
-          <Card
-            title={item.title}
-            year={item.year}
-            image={item.cover}
-            imdbRating={item.imdbRating}
-          />
-        ))}
+        {data
+          .filter((item) =>
+            item.title.toLowerCase().includes(movie.toLowerCase())
+          )
+          .map((item) => (
+            <Card
+              title={item.title}
+              year={item.year}
+              image={item.cover}
+              imdbRating={item.imdbRating}
+            />
+          ))}
       </div>
     </div>
   );
