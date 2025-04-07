@@ -42,10 +42,15 @@ h1 {
   border: 1px solid greenyellow;
 }
 
+.year {
+  font-weight: bold;
+  font-size: 20px;
+}
+
 .image-container {
   width: 250px;
   height: 350px;
-  border: 1px solid black;
+  /*border: 1px solid black;*/
   box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
 }
 
