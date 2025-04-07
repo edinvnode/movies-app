@@ -7,7 +7,7 @@ const Card = ({ title, year, image, imdbRating }) => {
 
   return (
     <div className="card">
-      <h2 className="title">
+      <h2 className="title" title={title}>
         {title.length > 15 ? title.trim().substr(0, 15) + '...' : title}
       </h2>
       <p className="year">Year published: {year}</p>
