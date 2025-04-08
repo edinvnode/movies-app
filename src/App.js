@@ -35,6 +35,7 @@ function App() {
               year={item.year}
               image={item.cover}
               imdbRating={item.imdbRating}
+              genre={item.genre}
             />
           ))}
       </div>
