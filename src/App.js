@@ -4,12 +4,20 @@ import { useState } from 'react';
 
 function App() {
   const [movie, setMovie] = useState('');
+  const [sortedMovies, setSortedMovies] = useState(data);
 
   //console.log(data);
 
   const handleMovie = (e) => {
     setMovie(e.target.value);
     //alert(movie);
+  };
+
+  const handleSort = () => {
+    const sorted = [...sortedMovies].sort(
+      (a, b) => parseFloat(b.imdbRating) - parseFloat(a.imdbRating)
+    );
+    setSortedMovies(sorted);
   };
 
   return (
@@ -23,9 +31,12 @@ function App() {
           value={movie}
           onChange={handleMovie}
         />
+        <button onClick={handleSort} className="sort-button">
+          Sort by imDB rating
+        </button>
       </div>
       <div className="container">
-        {data
+        {sortedMovies
           .filter((item) =>
             item.title.toLowerCase().includes(movie.toLowerCase())
           )
