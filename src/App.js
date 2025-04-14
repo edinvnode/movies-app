@@ -13,10 +13,24 @@ function App() {
     //alert(movie);
   };
 
-  const handleSort = () => {
+  const sortByRating = () => {
     const sorted = [...sortedMovies].sort(
       (a, b) => parseFloat(b.imdbRating) - parseFloat(a.imdbRating)
     );
+    setSortedMovies(sorted);
+  };
+
+  // 🔠 Sort by Title (A-Z)
+  const sortByTitle = () => {
+    const sorted = [...sortedMovies].sort((a, b) =>
+      a.title.localeCompare(b.title)
+    );
+    setSortedMovies(sorted);
+  };
+
+  // 📅 Sort by Year (Descending)
+  const sortByYear = () => {
+    const sorted = [...sortedMovies].sort((a, b) => b.year - a.year);
     setSortedMovies(sorted);
   };
 
@@ -31,8 +45,17 @@ function App() {
           value={movie}
           onChange={handleMovie}
         />
-        <button onClick={handleSort} className="sort-button">
+      </div>
+
+      <div className="sort-buttons">
+        <button onClick={sortByRating} className="sort-rating">
           Sort by imDB rating
+        </button>
+        <button onClick={sortByTitle} className="sort-title">
+          Sort by Title
+        </button>
+        <button onClick={sortByYear} className="sort-year">
+          Sort by Year
         </button>
       </div>
       <div className="container">
